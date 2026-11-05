@@ -1,19 +1,19 @@
 import pytest  
 import time  
 from selenium import webdriver  
-from selenium.webdriver.common.by import By  # Import By để xác định phương thức tìm kiếm phần tử trên trang web
-from selenium.webdriver.support.ui import Select  # Import Select để thao tác với các phần tử HTML dạng dropdown <select>
+from selenium.webdriver.common.by import By  
+from selenium.webdriver.support.ui import Select 
 
-@pytest.fixture  # Đánh dấu hàm driver() là fixture của pytest, cho phép các testcase sử dụng lại trình duyệt được khởi tạo
+@pytest.fixture 
 def driver():
     # Khởi tạo trình duyệt Chrome
-    driver = webdriver.Chrome()  # Tạo đối tượng WebDriver và mở một cửa sổ trình duyệt Chrome
-    driver.maximize_window()  # Phóng to cửa sổ trình duyệt để hiển thị trang web trên diện tích lớn nhất
+    driver = webdriver.Chrome()  
+    driver.maximize_window()  
     driver.implicitly_wait(5)  # Thiết lập thời gian chờ ngầm tối đa 5 giây khi Selenium tìm kiếm phần tử
     yield driver  # Trả đối tượng driver cho testcase sử dụng; phần code phía sau yield sẽ chạy sau khi testcase kết thúc
      # Giữ trình duyệt mở cho đến khi người dùng nhấn Enter
-    input("\nNhấn Enter để đóng trình duyệt...")  # Tạm dừng chương trình và chờ người dùng nhấn Enter trong terminal
-    driver.quit()  # Đóng trình duyệt Chrome và giải phóng tài nguyên WebDriver
+    input("\nNhấn Enter để đóng trình duyệt...") 
+    driver.quit()  
 
 
 def test_dropdown_default_state(driver):
