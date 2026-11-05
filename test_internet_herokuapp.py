@@ -90,3 +90,7 @@ def test_checkboxes_toggle(driver):
     time.sleep(1.5)
     
     print("\n[PASS] Testcase 3: Kiểm tra trạng thái và thao tác click Checkboxes thành công!")
+
+
+if __name__ == "__main__":
+    pytest.main(["-v", "-s", "test_internet_herokuapp.py"])    
